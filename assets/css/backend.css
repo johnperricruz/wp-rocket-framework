@@ -1,0 +1,40 @@
+/**
+*
+* Backend CSS Settings
+*
+* @By John Perri Cruz
+*
+**/
+
+
+table.jpc-table tr td input[type=text],table.jpc-table tr td textarea {
+    width: 80%;
+}
+table.jpc-table tr td {
+    border-bottom: 1px solid #eee;
+    margin: 13px 0px;
+    padding: 12px 0px;
+    font-size: 14px;
+	font-weight: bold;
+}
+table.jpc-table tr:last-of-type  td{
+    border-bottom: 0px solid #eee;
+}
+table.jpc-table {
+    border-top: 4px solid #0085BA;
+    background: #f9f9f9;
+    padding: 16px;
+    width: 70%;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	margin-bottom: 40px;
+}
+table.jpc-table tr td a {
+    float: right;
+}
+.shortcodes {
+    background: #fff;
+    padding: 5px;
+    border-left: 4px solid #0085BA;
+    margin: 10px 0px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}

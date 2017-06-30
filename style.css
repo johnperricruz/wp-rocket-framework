@@ -1,0 +1,94 @@
+/*
+Theme Name: Primeview Rocket Theme
+Theme URI: http://primeview.com
+Author: PrimeView
+Description: This theme is theme built for speed. 
+Version: 2.0
+*/
+html {
+    margin-top: 0px !important;
+}
+/**
+ * Bootstrap to Wordpress Tweaks
+ */
+.logged-in nav.navbar {
+    margin-top: 32px;
+}
+div#sidebar ul li{
+	list-style-type:none;
+}
+ul.dropdown-menu li.active.open .dropdown-menu {
+    top: 0px;
+    left: 100%;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #fff;
+    color: #000;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+    outline: 0;
+}
+/**
+ * Pagination
+ */ 
+ a.page-numbers,span.page-numbers{
+    position: relative;
+    float: left; 
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+span.page-numbers.current {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7; 
+    border-color: #337ab7;
+}
+/**
+ * Archieves
+ */
+.category-lists,.index-lists,.author-lists,.archieve-lists,.tag-lists,.search-lists {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f9f9f9;
+}
+span.date-posted {
+    display: inline-block;
+    margin-bottom: 7px;
+    font-style: italic;
+    color: grey;
+    font-size: 12px;
+}
+/**
+ * Fakeloader
+ */
+.fl{
+    text-align: center;
+    margin: auto;
+    display: block;
+    top: 45%;
+}
+.spinner1,.spinner2,.spinner3,.spinner4,.spinner5{
+    width: 32px;
+    height: 32px;
+    position: relative;
+}
+
+/**
+ * Your customization Starts Here
+ */
+footer.footer {
+    background-color: #f5f5f5;
+    padding: 15px;
+    margin-top: 100px;
+}
