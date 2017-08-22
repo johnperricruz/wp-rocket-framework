@@ -23,7 +23,8 @@
 								timeToHide:1500,
 								bgColor:"#2ecc71",
 								spinner:"spinner1"
-							});  						
+							});  					
+							$j("body").attr({style:"background-color:#fff;visibility:visible;"});							
 						});
 					</script>
 				';
