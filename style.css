@@ -69,20 +69,6 @@ span.date-posted {
     color: grey;
     font-size: 12px;
 }
-/**
- * Fakeloader
- */
-.fl{
-    text-align: center;
-    margin: auto;
-    display: block;
-    top: 45%;
-}
-.spinner1,.spinner2,.spinner3,.spinner4,.spinner5{
-    width: 32px;
-    height: 32px;
-    position: relative;
-}
 
 /**
  * Your customization Starts Here
