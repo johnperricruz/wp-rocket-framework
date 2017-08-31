@@ -23,7 +23,7 @@
 
 </head>
 <div class="fakeloader"></div>
-<body <?php body_class(); ?> >
+<body <?php body_class(); ?> style="visibility:hidden; background:#2ecc71;">
 	<div id="page" class="hfeed site">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container">
