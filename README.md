@@ -15,7 +15,7 @@
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within this framework, please send an e-mail to John Perri Cruz at john@primeview.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this framework, please send an e-mail to John Perri Cruz at johnperricruz@gmail.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 
