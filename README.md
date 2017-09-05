@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/johnperricruz/wp-rocket-framework/master/preview.jpg">
 </p>
 
-## Primeview Rocket Framework
+## Wordpress Rocket Framework
 
 - Built in Theme Options
 - Built in Premium Plugins (in app and 3rd Party)
