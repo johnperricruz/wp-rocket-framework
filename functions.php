@@ -611,7 +611,8 @@
 		 * Load on frontend
 		 */
 		if (!is_admin()){
-			wp_enqueue_script( 'rocket-script-js', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'));	
+			wp_enqueue_script( 'rocket-tether-js', get_template_directory_uri().'/assets/js/tether.min.js', array('jquery'));	
+			wp_enqueue_script( 'rocket-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'));	
 			add_action( 'wp_enqueue_scripts', 'rocketFrontend' );
 			
 			/**
