@@ -5,15 +5,11 @@ Author: PrimeView
 Description: This theme is theme built for speed. 
 Version: 2.0
 */
-html {
-    margin-top: 0px !important;
-}
+
 /**
  * Bootstrap to Wordpress Tweaks
  */
-.logged-in nav.navbar {
-    margin-top: 32px;
-}
+
 div#sidebar ul li{
 	list-style-type:none;
 }
