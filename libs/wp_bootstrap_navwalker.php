@@ -52,13 +52,13 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 		} else if ( strcasecmp( $item->attr_title, 'dropdown-header') == 0 && $depth === 1 ) {
 			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
 		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
-			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
+			$output .= $indent . '<li role="presentation" class="disabled"><a class="nav-link" href="#">' . esc_attr( $item->title ) . '</a>';
 		} else {
 
 			$class_names = $value = '';
 
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-			$classes[] = 'menu-item-' . $item->ID;
+			$classes[] = 'nav-item menu-item-' . $item->ID;
 
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
@@ -110,9 +110,9 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			 * property is NOT null we apply it as the class name for the glyphicon.
 			 */
 			if ( ! empty( $item->attr_title ) )
-				$item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
+				$item_output .= '<a class="nav-link" '. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
 			else
-				$item_output .= '<a'. $attributes .'>';
+				$item_output .= '<a class="nav-link" '. $attributes .'>';
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
@@ -194,7 +194,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$fb_output .= ' class="' . $menu_class . '"';
 
 			$fb_output .= '>';
-			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
+			$fb_output .= '<li class="nav-item" ><a class="nav-link"  href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
 			$fb_output .= '</ul>';
 
 			if ( $container )

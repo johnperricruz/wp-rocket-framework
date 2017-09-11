@@ -25,20 +25,12 @@
 <div class="fakeloader"></div>
 <body <?php body_class(); ?> style="visibility:hidden; background:#2ecc71;">
 	<div id="page" class="hfeed site">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="<?php echo home_url(); ?>">
-						<?php bloginfo('name'); ?>
-					</a>
-				</div>
+				<a class="navbar-brand" href="/"><?php echo get_bloginfo('name'); ?></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 				<?php echo do_shortcode('[rocketmenu]'); ?>
 			</div>
 		</nav>
