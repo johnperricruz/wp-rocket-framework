@@ -1,7 +1,7 @@
 $j = jQuery.noConflict();
 	
 $j(function(){
-	console.log('Onload Event.');
+	console.log('Loading Resources............100%');
 	mobileMenu();
 	menuClick();
 
