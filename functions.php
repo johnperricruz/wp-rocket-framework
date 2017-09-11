@@ -64,7 +64,7 @@
 						'container'         => 'div',
 						'container_class'   => 'collapse navbar-collapse desktop',
 						'container_id'      => 'bs-navbar-collapse',
-						'menu_class'        => 'nav navbar-nav',
+						'menu_class'        => 'nav navbar-nav ml-auto',
 						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 						'walker'            => new wp_bootstrap_navwalker()
 					)
