@@ -414,9 +414,16 @@
 		 header("Location:$redirect");
 	  }
 	}
-
-	function new_excerpt_length($length) {
-		return 20;
+	function excerpt_more( $more ) {
+		return '';
+	}
+	function rocket_excerpt($length) {
+		if(strlen(get_the_excerpt()) >= $length){
+			$excerpt =  substr(get_the_excerpt(),0,$length).'...';
+		}else{
+			$excerpt = get_the_excerpt();
+		}
+		return $excerpt;
 	}
 	// START CUCTOM BLOG TEMPLATE PAGINATION
 
@@ -689,6 +696,7 @@
 		 */		
 		 
 		add_action( 'widgets_init', 'rocketSidebar' );	 	
+		add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );	
 		
 		/**
 		 * Rocket Menu
