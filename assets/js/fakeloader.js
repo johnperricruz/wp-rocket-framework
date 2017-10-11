@@ -116,7 +116,7 @@
             });
 
         }
-
+			centerLoader();
         $(window).load(function(){
                 centerLoader();
               $(window).resize(function(){
