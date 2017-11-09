@@ -1,3 +1,4 @@
+
 <p align="left">
 <img src="https://raw.githubusercontent.com/johnperricruz/wp-rocket-framework/master/preview.jpg">
 </p>
@@ -12,6 +13,15 @@
 - Tested on all screens and browser (Twitter Bootstrap Standard)
 - Developer Friendly
 - Compatible up to the latest version of WP
+
+## Installation Via SSH : 
+Run command via SSH Client inside "/public_html/wp-content/themes/"
+
+```bash
+1. Download the package   : wget https://github.com/johnperricruz/wp-rocket-framework/archive/v1.27.zip
+2. Unzip the Package      : unzip wp-rocket-framework-1.27.zip
+3. Remove the Zip File    :  rm -rf wp-rocket-framework-1.27.zip
+```
 
 ## Security Vulnerabilities
 
