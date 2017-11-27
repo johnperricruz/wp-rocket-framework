@@ -98,17 +98,29 @@
 		
 		$return = '';
 		
-		query_posts(array('orderby' => 'date', 'order' => 'DESC' , 'showposts' => $posts, 'cat' => $cat));
+		$args = array(
+			'orderby' => 'date', 
+			'order' => 'DESC' , 
+			'showposts' => $posts, 
+			'cat' => $cat
+		);
 		
-		/*Pull news template*/
-			$news .= '
-				<a href="'.get_permalink().'">'.get_the_post_thumbnail(get_the_ID(), array(300,300)).'</a>
-				'.get_the_title().'
-				'.get_the_excerpt().'
-				'.get_permalinks().'
-			';
-		/*End Pull news template*/
+		$query = new WP_Query($args);
 		
+		if($query->have_posts()){
+			while($query->have_posts()){  
+		
+				/*Pull news template*/
+					$news .= '
+						<a href="'.get_the_permalink().'">'.get_the_post_thumbnail(get_the_ID(), array(300,300)).'</a>
+						'.get_the_title().'
+						'.rocket_excerpt(200).'
+						'.get_the_permalink().'
+					';
+				/*End Pull news template*/		
+				
+			}
+		}
 		switch($template){
 			case 'news' : 			
 				$return = $news;
