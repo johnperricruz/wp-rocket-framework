@@ -728,7 +728,7 @@
 	}	
 	
 	/** 
-	 * Initialize Primeview Rocket Framework
+	 * Initialize WP Rocket Framework
 	 */
 	launchRocket();
 
