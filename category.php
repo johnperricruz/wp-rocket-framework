@@ -22,7 +22,7 @@ get_header(); ?>
 							?>
 						<header class="category-header">
 							<h1 class="category-title"><?php echo $category->name; ?></h1>
-						</header><!-- .archive-header -->
+						</header>
 						<?php						
 							while(have_posts()){ 
 								the_post();

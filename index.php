@@ -8,7 +8,7 @@
 						while(have_posts()){ 
 								the_post();
 								?>
-									<div class="category-lists">
+									<div class="index-lists">
 										<div class="row">
 											<div class="col-md-3">
 												<?php if(has_post_thumbnail()){?>

@@ -1,10 +1,10 @@
 <?php
 /**
- * The template for displaying Archieve pages
+ * The template for displaying Archive pages
  *
  */
 get_header(); ?>
-	<div id="primary" class="archieve site-content">
+	<div id="primary" class="archive site-content">
 		<div class="container">
 			<div class="row" role="main">
 				<div class="col-md-8">
@@ -43,7 +43,7 @@ get_header(); ?>
 												<span class="date-posted"><span class="glyphicon glyphicon-time"></span>&nbsp;<?php echo get_the_date(); ?></span>
 												<br/>
 												<p><?php echo substr(get_the_excerpt(), 0,200) ;?>...</p>
-												<div class="archieve-action">
+												<div class="archive-action">
 													<a class="btn btn-primary" href="<?php echo get_the_permalink(); ?>"><span class="glyphicon glyphicon-search"></span> Read more</a>
 												</div>
 											</div>

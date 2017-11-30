@@ -66,12 +66,12 @@ span.page-numbers.current {
     color: #fff;
     cursor: default;
     background-color: #337ab7; 
-    border-color: #337ab7;
+    border-color: #337ab7; 
 }
 /**
- * Archieves
+ * Archives
  */
-.category-lists,.index-lists,.author-lists,.archieve-lists,.tag-lists,.search-lists {
+.category-lists,.index-lists,.author-lists,.archive-lists,.tag-lists,.search-lists {
     margin-bottom: 15px;
     padding: 15px;
     background: #f9f9f9;
