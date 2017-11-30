@@ -714,6 +714,7 @@
 		 * Rocket Menu
 		 */
 		register_nav_menu( 'primary', __( 'Primary Menu', 'rocket' ) );
+		register_nav_menu( 'mobile', __( 'Mobile Menu', 'rocket' ) );
 
 		/**
 		 * Shortcode
