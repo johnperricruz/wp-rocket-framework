@@ -648,8 +648,8 @@
 			/**
 			 * Excerpt Length
 			 */
-			 add_filter('excerpt_length', 'new_excerpt_length');	
-			 
+			// add_filter('excerpt_length', 'new_excerpt_length');	
+			  
 			/**
 			 * Async JS Version
 			 */
@@ -668,7 +668,7 @@
 			 * Theme Options
 			 */
 			add_action( 'admin_menu', 'rocketThemeOptions' );
-			add_action( 'admin_init', 'rocketThemeSettings' );
+			add_action( 'admin_init', 'rocketThemeSettings');
 			
 			/** 
 			 * Admin Favicon
@@ -708,7 +708,7 @@
 		 */		
 		 
 		add_action( 'widgets_init', 'rocketSidebar' );	 	
-		add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );	
+		//add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );	
 		
 		/**
 		 * Rocket Menu
