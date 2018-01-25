@@ -17,8 +17,8 @@
 			if(get_option('loader')==true){
 				echo '
 					<script>
-						$loader = jQuery.noConflict();
-						$loader(function(){
+						$j = jQuery.noConflict();
+						$j(function(){
 							$j(".fakeloader").fakeLoader({
 								timeToHide:1200,
 								bgColor:"#2ecc71",

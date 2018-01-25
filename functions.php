@@ -107,11 +107,13 @@
 		
 		$query = new WP_Query($args);
 		
+		$return = array();
+		
 		if($query->have_posts()){
 			while($query->have_posts()){  
-		
+			$query->the_post();
 				/*Pull news template*/
-					$news .= '
+					$return['news'] .= '
 						<a href="'.get_the_permalink().'">'.get_the_post_thumbnail(get_the_ID(), array(300,300)).'</a>
 						'.get_the_title().'
 						'.rocket_excerpt(200).'
@@ -123,7 +125,7 @@
 		}
 		switch($template){
 			case 'news' : 			
-				$return = $news;
+				$return = $return['news'];
 			break;
 		}
 		wp_reset_query();
