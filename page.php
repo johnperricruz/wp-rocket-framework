@@ -5,6 +5,9 @@
  */
 get_header(); ?>
 	<div id="primary" class="innerpage site-content">
+		<header class="entry-header">
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+		</header>
 		<div class="container">
 			<div class="row" role="main">
 				<div class="col-md-8">

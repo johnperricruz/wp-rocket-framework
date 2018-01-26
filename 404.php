@@ -5,10 +5,12 @@
  */
 get_header(); ?>
 	<div id="primary" class="404 site-content">
+		<header class="entry-header">
+			<h1 class="entry-title">404 : Page not found</h1>
+		</header>
 		<div class="container">
 			<div class="row" role="main">
 				<div class="col-md-8">
-					<h1>Error 404 : Page not found.</h1>
 					<dl>
 						<dt>The page you requested was not found, and we have a fine guess why.</dt>
 						<dd>

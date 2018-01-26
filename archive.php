@@ -5,25 +5,25 @@
  */
 get_header(); ?>
 	<div id="primary" class="archive site-content">
+		<header class="entry-header">
+			<h1 class="entry-title">
+				<?php
+					if(is_day()){
+						printf( __( 'Daily Archives: %s', 'rocket' ), '<span>' . get_the_date() . '</span>' );
+					}else if(is_month()){
+						printf( __( 'Monthly Archives: %s', 'rocket' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'rocket' ) ) . '</span>' );
+					}else if (is_year()){
+						printf( __( 'Yearly Archives: %s', 'rocket' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'rocket' ) ) . '</span>' );
+					}else{
+						_e( 'Archives', 'rocket' );
+					}
+				?>
+			</h1>
+		</header><!-- .archive-header -->
 		<div class="container">
 			<div class="row" role="main">
 				<div class="col-md-8">
 				<?php if ( have_posts() ) { ?>
-					<header class="archive-header">
-						<h1 class="archive-title">
-							<?php
-								if(is_day()){
-									printf( __( 'Daily Archives: %s', 'rocket' ), '<span>' . get_the_date() . '</span>' );
-								}else if(is_month()){
-									printf( __( 'Monthly Archives: %s', 'rocket' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'rocket' ) ) . '</span>' );
-								}else if (is_year()){
-									printf( __( 'Yearly Archives: %s', 'rocket' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'rocket' ) ) . '</span>' );
-								}else{
-									_e( 'Archives', 'rocket' );
-								}
-							?>
-						</h1>
-					</header><!-- .archive-header -->
 						<?php
 							/* Start the Loop */
 							while (have_posts()) { 
