@@ -1,11 +1,14 @@
 <?php
 /**
- * Template Name: Full-width, no sidebar Page Template
+ * Template Name: Full-width, no sidebar Page Template (Bootstrap 12 Column Grid)
  *
  */
 get_header(); ?>
 	<div id="primary" class="full-width site-content">
-		<div class="container-fluid">
+		<header class="entry-header">
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+		</header>
+		<div class="container">
 			<div class="row" role="main">
 				<div class="col-md-12">
 					<?php 
