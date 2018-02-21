@@ -20,11 +20,9 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-
 </head>
-<div class="fakeloader"></div>
-<body <?php body_class(); ?> style="visibility:hidden; background:#2ecc71;">
-	<div id="page" class="hfeed site">
+<body <?php body_class(); ?> >
+	<div style="opacity:0" id="page" class="hfeed site">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="/"><?php echo get_bloginfo('name'); ?></a>

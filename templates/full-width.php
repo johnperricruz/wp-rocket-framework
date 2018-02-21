@@ -5,8 +5,8 @@
  */
 get_header(); ?>
 	<div id="primary" class="full-width site-content">
-		<header class="entry-header">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+		<header class="innerpage-header p-5">
+			<h1 class="text-center innerpage-title"><?php the_title(); ?></h1>
 		</header>
 		<div class="container">
 			<div class="row" role="main">

@@ -3,14 +3,22 @@ Theme Name: WP Rocket Theme
 Theme URI: http://www.johnperricruz.com
 Author: John Perri Cruz
 Description: Theme built for speed.
-Version: 1.30
+Version: 1.31
 */
 
 /**
  * Bootstrap to Wordpress Tweaks
  */
+
+.pace-running > :not(.pace) {
+  opacity: 0;
+}
+.pace-done > :not(.pace) {
+  opacity: 1!important;
+  visibility:visible!important;
+  transition: opacity .8s ease;
+}
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-    margin-bottom: 20px;
     background: #fff!important;
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
 }
@@ -45,6 +53,10 @@ div.wpcf7-validation-success {
     margin: 0px;
     padding: 10px;
 }
+header.innerpage-header {
+    background: #f9f9f9;
+    margin-bottom: 30px;
+}
 /**
  * Pagination
  */ 
@@ -68,13 +80,27 @@ span.page-numbers.current {
     background-color: #337ab7; 
     border-color: #337ab7; 
 }
+aside.widget ul {
+    list-style: none;
+    padding: 0px;
+}
+h3.widget-title {
+    font-size: 1.2rem;
+}
+aside.widget ul li a {
+    color: #323232;
+}
+div#secondary .search-form {
+    margin-bottom: 20px;
+}
 /**
  * Archives
  */
-.category-lists,.index-lists,.author-lists,.archive-lists,.tag-lists,.search-lists {
-    margin-bottom: 15px;
+.index-lists{
     padding: 15px;
-    background: #f9f9f9;
+}
+.index-lists h2 {
+    font-size: 1.3rem;
 }
 span.date-posted {
     display: inline-block;

@@ -1,42 +1,66 @@
 <?php
 	 require_once('libs/wp_bootstrap_navwalker.php');
 	 require_once('libs/class-tgm-plugin-activation.php');
-  /**
-   * Inline CSS 
-   */
-	function rocketStyle(){
-		if(get_option('development_mode')!='true'){
-			
-			$loader = null;
-			
-			if(get_option('loader')=='true'){
-				$loader = readCSS('assets/css/fakeloader.css');
-			}
-			
-			echo '
-			<style type="text/css" id="inline-style">
-				'.readCSS('assets/css/bootstrap.min.css').'
-				'.$loader.'
-				'.readCSS('style.css').'
-				'.readCSS('assets/css/responsive.css').'
-			</style>';
-		}else{
-			
-			if(get_option('loader')=='true'){
-				wp_enqueue_style( 'dev-loader-css', get_template_directory_uri() . '/assets/css/fakeloader.css');
-			}
-			
-			wp_enqueue_style( 'dev-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
-			wp_enqueue_style( 'dev-style', get_template_directory_uri() . '/style.css');	
-			wp_enqueue_style( 'dev-responsive', get_template_directory_uri() . '/assets/css/responsive.css');				
-		}
-	}
+	 
 	/**
-	 * Read CSS File externally 
-	 */
-	function readCSS($file = null){
-		return file_get_contents(get_template_directory().'/'.$file.'');
+     * Rocket CSS : PUT CSS HERE
+     */
+	function rocketStyle(){
+
+			//Font awesome
+			if(get_option('font_awesome') == "true") { 
+				wp_enqueue_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' );
+			}	
+
+			//Owl
+			if(get_option('owl') == "true") { 		
+				wp_enqueue_style( 'owl-css', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css');
+				wp_enqueue_style( 'owl-transition-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css');	
+				wp_enqueue_style( 'owl-theme-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css');	
+			}	
+			
+			//Pace https://cdnjs.com/libraries/pace
+			wp_enqueue_style( 'pace-css', 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-flash.min.css');
+			
+			//Rocket CSS
+			wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+			wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css');	
+			wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css');				
 	}
+	
+	/**
+	 * Rocket JS : PUT JS HERE
+	 */
+	function rocketScript(){
+		//JS
+		if(get_option('scroll_reveal') == "true") { 
+			wp_enqueue_script( 'scroll-reveal',  '//cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/3.1.4/scrollreveal.min.js',array('jquery'));
+		}
+		if(get_option('owl') == "true") { 
+			wp_enqueue_script( 'owl-js', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js',array('jquery'));
+		}	
+		if(get_option('parallax') == "true") { 
+			wp_enqueue_script( 'parallax', '//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js',array('jquery'));
+		}
+		
+		//Pace
+		wp_enqueue_script( 'pace-js', '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',array('jquery'));
+		
+		//Load core file
+		wp_enqueue_script( 'rocket-tether-js', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array('jquery'));	
+		wp_enqueue_script( 'rocket-bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array('jquery'));	
+		wp_enqueue_script( 'rocket-script', get_template_directory_uri() . '/assets/js/script.js',array('jquery'));
+		
+		//Transfer Scripts to footer
+		remove_action('wp_head', 'wp_print_scripts'); 
+	    remove_action('wp_head', 'wp_print_head_scripts', 9); 
+	    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+ 
+	    add_action('wp_footer', 'wp_print_scripts', 5);
+	    add_action('wp_footer', 'wp_enqueue_scripts', 5);
+	    add_action('wp_footer', 'wp_print_head_scripts', 5); 
+	}
+
 	/**
 	 * Remove script version
 	 */
@@ -44,6 +68,7 @@
 		$parts = explode( '?ver', $src ); 
 		return $parts[0];
 	}
+	
 	/**
 	 * Async All JS
 	 */
@@ -52,6 +77,7 @@
 		if ( strpos( $url, 'jquery.js' ) ) return $url;
 		return "$url'  async='async"; 
 	}
+	
 	/**
 	 * Get Rocket Navigation
 	 */
@@ -149,58 +175,8 @@
 			'total' => $wp_query->max_num_pages
 		) );
 	}
-	/**
-	 * Admin Scripts
-	 */
-	function rocketFrontend(){
-		/**
-		*
-		* Load on Frontend
-		*
-		**/
-		
-		if(!is_admin()){
-		
-			//Font awesome
-			if(get_option('font_awesome') == "true") { 
-				wp_enqueue_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' );
-			}	
 
-			/**
-			 * Owl
-			 */
-			if(get_option('owl') == "true") { 		
-				wp_enqueue_style( 'owl-css', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css');
-				wp_enqueue_style( 'owl-transition-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css');	
-				wp_enqueue_style( 'owl-theme-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css');	
-			}
-
-			/**
-			 * Website Loader
-			 */
-			
-			//JS
-			if(get_option('scroll_reveal') == "true") { 
-				wp_enqueue_script( 'scroll-reveal',  '//cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/3.1.4/scrollreveal.min.js',array('jquery'));
-			}
-			if(get_option('owl') == "true") { 
-				wp_enqueue_script( 'owl-js', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js',array('jquery'));
-			}	
-			if(get_option('loader') == "true") { 
-				wp_enqueue_script( 'loader-js', get_template_directory_uri() . '/assets/js/fakeloader.js',array('jquery'));
-			}	
-			if(get_option('parallax') == "true") { 
-				wp_enqueue_script( 'parallax', '//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js',array('jquery'));
-			}
-			
-			/**
-			 * Load By Default
-			 */				
-			//wp_enqueue_script( 'rocket-loader', get_template_directory_uri() . '/assets/js/loader.js');
-			wp_enqueue_script( 'rocket-script', get_template_directory_uri() . '/assets/js/script.js',array('jquery'));
-			
-		}	
-	}
+	
 	/**
 	 * Register Theme Options
 	 */
@@ -274,15 +250,7 @@
 					echo '<tr>';
 						echo '<td>Backend Favicon: </td>';
 						echo '<td><input placeholder="Admin Backend Favicon" type="text" name="admin_favicon" value="'. esc_attr( get_option('admin_favicon') ).'" /></td>';
-					echo '</tr>';		
-					echo '<tr>';
-						echo '<td>Force SSL: (Redirect To HTTPS) </td>';
-						?><td><input type="checkbox" name="ssl" value="true" <?php if(get_option('ssl') == "true") echo "checked"; ?> /></td><?php
-					echo '</tr>';			
-					echo '<tr>';
-						echo '<td>Development Mode: (Switching off will inline all CSS ) </td>';
-						?><td><input type="checkbox" name="development_mode" value="true" <?php if(get_option('development_mode') == "true") echo "checked"; ?> /></td><?php
-					echo '</tr>';						
+					echo '</tr>';										
 				echo '</table>';
 				echo '<h3>III. Enable Theme Features</h3>';
 				echo '<table class="jpc-table">';	
@@ -301,10 +269,6 @@
 					echo '<tr>';
 						echo '<td>JS Parallax Scrolling : </td>';
 						?><td><input type="checkbox" name="parallax" value="true" <?php if(get_option('parallax') == "true") echo "checked"; ?> /> Example :  $("SELECTOR").parallax("50%", 0.1); </td><?php
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>Website Loader : </td>';
-						?><td><input type="checkbox" name="loader" value="true" <?php if(get_option('loader') == "true") echo "checked"; ?> /><a target="_blank" href="http://joaopereirawd.github.io/fakeLoader.js/">Read Documentation</a></td><?php
 					echo '</tr>';					
 				echo '</table>';	
 				echo '<h3>IV. Copyright Section</h3>';
@@ -347,7 +311,6 @@
 		register_setting( 'option-group', 'pinterest' );
 		register_setting( 'option-group', 'favicon' );
 		register_setting( 'option-group', 'admin_favicon' );
-		register_setting( 'option-group', 'ssl' );
 		register_setting( 'option-group', 'font_awesome' );
 		register_setting( 'option-group', 'scroll_reveal' );
 		register_setting( 'option-group', 'owl' );
@@ -356,7 +319,6 @@
 		register_setting( 'option-group', 'copyright' );
 		register_setting( 'option-group', 'developer' );
 		register_setting( 'option-group', 'rocket_scripts' );
-		register_setting( 'option-group', 'development_mode' );
 		
 	}
 	function developerShortcode( $atts ) { 
@@ -419,18 +381,10 @@
 		echo '<link href="'.get_option('admin_favicon').'" rel="icon" type="image/x-icon">';
 	}
 	
-	/**
-	 * Redirect To HTTPS
-	 */
-	function redirectSSL(){
-	  if($_SERVER['HTTPS']!="on"){
-		 $redirect= "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-		 header("Location:$redirect");
-	  }
-	}
 	function excerpt_more( $more ) {
 		return '';
 	}
+	
 	function rocket_excerpt($length) {
 		if(strlen(get_the_excerpt()) >= $length){
 			$excerpt =  substr(get_the_excerpt(),0,$length).'...';
@@ -439,24 +393,22 @@
 		}
 		return $excerpt;
 	}
-	// START CUCTOM BLOG TEMPLATE PAGINATION
+	
+	/**
+	 * Custom Blog Pagination
+	 */
+	function my_pagination() {
+		global $wp_query;
 
-	if ( ! function_exists( 'my_pagination' ) ) :
-		function my_pagination() {
-			global $wp_query;
-
-			$big = 999999999; // need an unlikely integer
-			
-			echo paginate_links( array(
-				'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-				'format' => '?paged=%#%',
-				'current' => max( 1, get_query_var('paged') ),
-				'total' => $wp_query->max_num_pages
-			) );
-		}
-	endif;
-
-	// END CUSTOM BLOG TEMPLATE PAGINATION
+		$big = 999999999; // need an unlikely integer
+		
+		echo paginate_links( array(
+			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format' => '?paged=%#%',
+			'current' => max( 1, get_query_var('paged') ),
+			'total' => $wp_query->max_num_pages
+		) );
+	}
 
 	function requiredPlugins() {
 
@@ -631,35 +583,30 @@
 		/**
 		 * Load on frontend
 		 */
-		if (!is_admin()){
-			wp_enqueue_script( 'rocket-tether-js', get_template_directory_uri().'/assets/js/popper.min.js', array('jquery'));	
-			wp_enqueue_script( 'rocket-bootstrap-js', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'));	
-			add_action( 'wp_enqueue_scripts', 'rocketFrontend' );
-			
-			/**
-			 * Inline CSS 
-			 */
-			add_action( 'wp_head', 'rocketStyle',100);
-			
-			/**
-			 * Remove Version
-			 */
-			add_filter( 'script_loader_src', 'removeScriptVersion', 15, 1 );
-			add_filter( 'style_loader_src', 'removeScriptVersion', 15, 1 );
-			
-			/**
-			 * Excerpt Length
-			 */
-			// add_filter('excerpt_length', 'new_excerpt_length');	
-			  
-			/**
-			 * Async JS Version
-			 */
-			//add_filter( 'clean_url', 'asyncJS', 11, 1 );
-		}
-			
 
+		add_action( 'wp_enqueue_scripts', 'rocketScript' );
 		
+		/**
+		 * Inline CSS 
+		 */
+		add_action( 'wp_head', 'rocketStyle',100);
+		
+		/**
+		 * Remove Version
+		 */
+		add_filter( 'script_loader_src', 'removeScriptVersion', 15, 1 );
+		add_filter( 'style_loader_src', 'removeScriptVersion', 15, 1 );
+		
+		/**
+		 * Excerpt Length
+		 */
+		// add_filter('excerpt_length', 'new_excerpt_length');	
+		  
+		/**
+		 * Async JS Version
+		 */
+		//add_filter( 'clean_url', 'asyncJS', 11, 1 );
+	
 		/** 
 		 * Load on admin
 		 */
@@ -685,21 +632,6 @@
 			  
 
 		}
-		 
-
-		
-		/**
-		 * Load both frontend and admin
-		 */
-		 
-		 
-		/**
-		 * Redirect SSL
-		 */
-		if(get_option('ssl')=='true'){
-			redirectSSL();
-		}
-		 
 		/**
 		 * Plugin Dep
 		 */

@@ -5,9 +5,9 @@
  */
 get_header(); ?>
 	<div id="primary" class="author-<?=get_queried_object_id();?> author site-content">
-		<header class="entry-header">
-			<h1 class="entry-title"><?php printf( __( 'Author Archives: %s', 'twentytwelve' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
-		</header><!-- .entry-header -->
+		<header class="innerpage-header p-5">
+			<h1 class="text-center innerpage-title"><?php printf( __( 'Author Archives: %s', 'twentytwelve' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
+		</header>
 		<div class="container">
 			<div class="row" role="main">
 				<div class="col-md-8">
@@ -48,24 +48,24 @@ get_header(); ?>
 						while ( have_posts() ) {
 							the_post(); 
 							?>
-								<div class="author-list">
+								<div class="index-lists">
 									<div class="row">
-										<div class="col-md-3">
+										<div class="col-md-4">
 											<?php if(has_post_thumbnail()){?>
 												<?php echo '<img title="'.get_the_title().'" alt="'.get_the_title().'" class="img-fluid wp-post-image" src="'.wp_get_attachment_url( get_post_thumbnail_id() ).'" width="100%" height="auto" />';?>
 											<?php }else{
-												echo '<img class="img-fluid" src="//placehold.it/171x180" draggable="false" alt="No Image" title="No Image" />';
+												echo '<img class="img-fluid" src="//placehold.it/300x300" draggable="false" alt="No Image" title="No Image" />';
 											} ?>
 										</div>
-											<div class="col-md-9">
-												<h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
-												<span class="date-posted"><span class="glyphicon glyphicon-time"></span>&nbsp;<?php echo get_the_date(); ?></span>
-												<br/>
-												<p><?php echo substr(get_the_excerpt(), 0,200) ;?>...</p>
-												<div class="archieve-action">
-													<a class="btn btn-primary" href="<?php echo get_the_permalink(); ?>"><span class="glyphicon glyphicon-search"></span> Read more</a>
-												</div>
+										<div class="col-md-8">
+											<h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
+											<span class="date-posted"><i aria-hidden="true" class="fa fa-clock"></i>&nbsp;<?php echo get_the_date(); ?></span>
+											<br/>
+											<p><?php echo get_the_excerpt(); ?></p>
+											<div class="archieve-action">
+												<a class="btn btn-primary" href="<?php echo get_the_permalink(); ?>"><span class="glyphicon glyphicon-search"></span> Read more</a>
 											</div>
+										</div>
 									</div>
 								</div>
 							<?php

@@ -5,8 +5,8 @@
  */
 get_header(); ?>
 	<div id="primary" class="archive site-content">
-		<header class="entry-header">
-			<h1 class="entry-title">
+		<header class="innerpage-header p-5">
+			<h1 class="text-center innerpage-title">
 				<?php
 					if(is_day()){
 						printf( __( 'Daily Archives: %s', 'rocket' ), '<span>' . get_the_date() . '</span>' );
