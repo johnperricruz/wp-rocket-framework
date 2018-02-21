@@ -5,8 +5,8 @@
  */
 get_header(); ?>
 	<div id="primary" class="404 site-content">
-		<header class="entry-header">
-			<h1 class="entry-title">404 : Page not found</h1>
+		<header class="innerpage-header p-5">
+			<h1 class="text-center innerpage-title">404 : Page not found</h1>
 		</header>
 		<div class="container">
 			<div class="row" role="main">
