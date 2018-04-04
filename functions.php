@@ -14,9 +14,9 @@
 
 			//Owl
 			if(get_option('owl') == "true") { 		
-				wp_enqueue_style( 'owl-css', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css');
-				wp_enqueue_style( 'owl-transition-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css');	
-				wp_enqueue_style( 'owl-theme-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css');	
+				wp_enqueue_style( 'owl-css', '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/assets/owl.carousel.min.css');
+				//wp_enqueue_style( 'owl-transition-min', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css');	
+				wp_enqueue_style( 'owl-theme-min', '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/assets/owl.theme.default.css');	
 			}	
 			
 			//Pace https://cdnjs.com/libraries/pace
@@ -37,7 +37,7 @@
 			wp_enqueue_script( 'scroll-reveal',  '//cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/3.1.4/scrollreveal.min.js',array('jquery'));
 		}
 		if(get_option('owl') == "true") { 
-			wp_enqueue_script( 'owl-js', '//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js',array('jquery'));
+			wp_enqueue_script( 'owl-js', '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/owl.carousel.min.js',array('jquery'));
 		}	
 		if(get_option('parallax') == "true") { 
 			wp_enqueue_script( 'parallax', '//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js',array('jquery'));
@@ -262,9 +262,9 @@
 						echo '<td>Scroll Reveal : </td>';
 						?><td><input type="checkbox" name="scroll_reveal" value="true" <?php if(get_option('scroll_reveal') == "true") echo "checked"; ?> /><a target="_blank" href="https://github.com/jlmakes/scrollreveal.js">Read Documentation</a> </td><?php
 					echo '</tr>';		
-					echo '<tr>';
-						echo '<td>Owl Carousel v1.3: </td>';
-						?><td><input type="checkbox" name="owl" value="true" <?php if(get_option('owl') == "true") echo "checked"; ?> /> <a target="_blank" href="http://www.owlcarousel.owlgraphic.com/demos/demos.html">Read Documentation</a> </td><?php
+					echo '<tr>'; 
+						echo '<td>Owl Carousel v2.3.3: </td>';
+						?><td><input type="checkbox" name="owl" value="true" <?php if(get_option('owl') == "true") echo "checked"; ?> /> <a target="_blank" href="https://owlcarousel2.github.io/OwlCarousel2/demos/basic.html">Read Documentation</a> </td><?php
 					echo '</tr>';	
 					echo '<tr>';
 						echo '<td>JS Parallax Scrolling : </td>';
