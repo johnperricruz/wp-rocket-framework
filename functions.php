@@ -175,12 +175,10 @@
 			'total' => $wp_query->max_num_pages
 		) );
 	}
-
-	
 	/**
 	 * Register Theme Options
 	 */
-	function rocketThemeOptions() {
+	function rocketThemeOptions(){
 		  add_menu_page( 
 			  'Theme Options', 			//Page Title
 			  'Theme Options',  		//Menu Title
@@ -191,7 +189,6 @@
 			  99						//Position
 		  );
 	}
-	
 	/**
 	 * Theme Options Page
 	 */
@@ -658,7 +655,7 @@
 		add_shortcode( 'social-media', 'socialMediaShortcode' ); //[social-media mode="facebook"]
 		add_shortcode( 'copyright', 'copyrightShortcode' ); //[copyright]
 		add_shortcode( 'developer', 'developerShortcode' ); //[developer]
-		add_shortcode('recent-posts', 'pull_blog_posts'); //[recent-posts post=5 template=news ]
+		add_shortcode('recent-posts', 'pull_blog_posts'); //[recent-posts posts=5 template=news ]
 	}	
 	
 	/** 
