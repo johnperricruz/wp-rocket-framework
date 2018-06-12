@@ -52,13 +52,13 @@
 		wp_enqueue_script( 'rocket-script', get_template_directory_uri() . '/assets/js/script.js',array('jquery'));
 		
 		//Transfer Scripts to footer
-		remove_action('wp_head', 'wp_print_scripts'); 
-	    remove_action('wp_head', 'wp_print_head_scripts', 9); 
-	    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+		// remove_action('wp_head', 'wp_print_scripts'); 
+	    // remove_action('wp_head', 'wp_print_head_scripts', 9); 
+	    // remove_action('wp_head', 'wp_enqueue_scripts', 1);
  
-	    add_action('wp_footer', 'wp_print_scripts', 5);
-	    add_action('wp_footer', 'wp_enqueue_scripts', 5);
-	    add_action('wp_footer', 'wp_print_head_scripts', 5); 
+	    // add_action('wp_footer', 'wp_print_scripts', 5);
+	    // add_action('wp_footer', 'wp_enqueue_scripts', 5);
+	    // add_action('wp_footer', 'wp_print_head_scripts', 5); 
 	}
 
 	/**
@@ -136,6 +136,7 @@
 		$return = array();
 		
 		if($query->have_posts()){
+			
 			while($query->have_posts()){  
 			$query->the_post();
 				/*Pull news template*/
@@ -148,6 +149,7 @@
 				/*End Pull news template*/		
 				
 			}
+			
 		}
 		switch($template){
 			case 'news' : 			
@@ -572,7 +574,23 @@
 		tgmpa( $plugins, $config );
 
 	}
-
+	function woo_new_review_product_tab( $tabs ) {
+		// Adds the new tab
+		$tabs['tab_reviews'] = array(
+			'title' 	=> __( 'Reviews ('.get_comments_number().')', 'woocommerce' ),
+			'priority' 	=> 50,
+			'callback' 	=> 'woo_new_review_product_tab_content'
+		);
+		return $tabs;
+	}
+	function woo_new_review_product_tab_content() {
+		// The new tab content
+		echo '<h2>Customer Reviews : </h2>';
+		// If comments are open or we have at least one comment, load up the comment template.
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;	
+	}
 	/**
 	 * Function Init 
 	 */
@@ -650,6 +668,8 @@
 		/**
 		 * Shortcode
 		 */
+		 
+		add_filter( 'woocommerce_product_tabs', 'woo_new_review_product_tab' );
 		add_shortcode( 'rocketmenu', 'getMenuNavigation' ); //[rocketmenu]
 		add_shortcode( 'year', 'getPresentYear' ); //[year]
 		add_shortcode( 'social-media', 'socialMediaShortcode' ); //[social-media mode="facebook"]
