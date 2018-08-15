@@ -22,7 +22,8 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
-	<div style="opacity:0" id="page" class="hfeed site">
+	<div class="loading"><img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/loading.gif" alt="Loading..." title="Loading..."></div>
+	<div id="page" class="hfeed site">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="/"><?php echo get_bloginfo('name'); ?></a>

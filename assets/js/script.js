@@ -4,6 +4,8 @@ $j(function(){
 	console.log('Loading Resources............100%');
 	mobileMenu();
 	menuClick();
+	
+	loading();
 
 });
 function mobileMenu(){
@@ -26,4 +28,7 @@ function menuClick(){
 		console.log(e);
 		$j(this).removeClass('open');
 	});	
+}
+function loading(){
+	$j('.loading').fadeOut();
 }

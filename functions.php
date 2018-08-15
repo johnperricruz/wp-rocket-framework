@@ -44,7 +44,7 @@
 		}
 		
 		//Pace
-		wp_enqueue_script( 'pace-js', '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',array('jquery'));
+		//wp_enqueue_script( 'pace-js', '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',array('jquery'));
 		
 		//Load core file
 		wp_enqueue_script( 'rocket-tether-js', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array('jquery'));	
