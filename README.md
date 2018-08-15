@@ -18,8 +18,8 @@
 Run command via SSH Client inside "/public_html/wp-content/themes/"
 
 ```bash
-1. Download the package              : wget https://github.com/johnperricruz/wp-rocket-framework/archive/v1.31.zip
-2. Unzip and remove the Package      : unzip v1.31.zip && rm v1.31.zip
+1. Download the package              : wget https://github.com/johnperricruz/wp-rocket-framework/archive/v1.32.zip
+2. Unzip and remove the Package      : unzip v1.32.zip && rm v1.32.zip
 ```
 
 ## Security Vulnerabilities
