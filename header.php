@@ -19,6 +19,28 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
+<style>
+    .loading {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999999999999 !important;
+        background: #3d464d;
+        opacity: 0.99;
+    }
+    .loading img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        bottom: 50%;
+        top: 50%;
+        margin: -20px;
+    }
+</style>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >

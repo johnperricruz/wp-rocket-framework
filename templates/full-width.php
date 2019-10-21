@@ -1,24 +1,25 @@
 <?php
 /**
- * Template Name: Full-width, no sidebar Page Template (Bootstrap 12 Column Grid)
+ * Template Name: Full-width, no sidebar Page Template (DIVI)
  *
  */
 get_header(); ?>
-	<div id="primary" class="full-width site-content">
-		<header class="innerpage-header p-5">
-			<h1 class="text-center innerpage-title"><?php the_title(); ?></h1>
-		</header>
-		<div class="container">
-			<div class="row" role="main">
-				<div class="col-md-12">
-					<?php 
-						while (have_posts()){ 
-							the_post(); 
-							get_template_part( 'content', 'page' ); 
-						} 
-					?>					
-				</div><!-- .col-md-12 -->
-			</div><!--.row -->
-		</div><!-- .container-fluid -->
-	</div><!-- .primary -->
+    <div id="primary" class="full-width site-content">
+        <header class="innerpage-header p-5">
+            <h1 class="text-white text-center innerpage-title mb-5">
+                <?php the_title(); ?>
+            </h1>
+            <?php
+                if ( function_exists('yoast_breadcrumb') ) {
+                  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                }
+            ?>
+        </header> 
+        <?php 
+            while (have_posts()){ 
+                the_post(); 
+                the_content();
+            } 
+        ?>                  
+    </div><!-- .primary -->
 <?php get_footer(); ?>
