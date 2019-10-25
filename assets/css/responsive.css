@@ -21,6 +21,27 @@ DATE CREATED : JULY 17, 2015         *
 @media screen and (max-width: 1024px){ /**| APPLE IPAD LANDSCAPE |**/
 }
 @media screen and (max-width: 800px) { /**| APPLE IPAD PORTRAIT |***/
+    .parallax {
+        background-attachment: initial!important;
+        background-position: top center!important;
+    }
+    .p-5,.p-4,.p-3,.p-2,.p-1{
+        padding:1rem!important;
+    }
+    .px-5,.px-4,.px-3,.px-2,.px-1{
+        padding-left:1rem!important;
+        padding-right:1rem!important;
+    }
+    .py-5,.py-4,.py-3,.py-2,.py-1{
+        padding-top:1rem!important;
+        padding-bottom:1rem!important;
+    }
+    .pt-5,.pt-4,.pt-3,.pt-2,.pt-1{
+        padding-top:1rem!important;
+    }
+    .pb-5,.pb-4,.pb-3,.pb-2,.pb-1{
+        padding-bottom:1rem!important;
+    }
 }
 @media screen and (max-width: 640px) { /*|SAMSUNG MOBILE LANDSCAPE|*/
 }
