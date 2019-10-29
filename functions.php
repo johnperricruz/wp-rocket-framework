@@ -201,17 +201,13 @@
                 settings_fields( 'option-group' );
                 do_settings_sections( 'option-group' );
                 echo '<div class="shortcodes">';
-                        echo "<h2>Social Media Shortcode</h2>";
-                            echo "<p><b>Shortcode :</b> ".stripslashes('[social-media]')." </p>";
-                            echo "<p><b>Parameters : </b>".stripslashes('mode = facebook , twitter , google_plus , linkedin , youtube , instagram , pinterest')." </p>";
-                            echo "<p><b>Example : </b>".stripslashes('[social-media mode="facebook"]')." </p>";
-                        echo "<h2>Copyright and Developer Shortcode</h2>";
-                        echo "<p><b>Get Developer Part : </b> ".stripslashes('[developer]')."</p>";
-                        echo "<p><b>Get Copyright Part : </b> ".stripslashes('[copyright]')."</p>";
+                        echo "<h2>WP Rocket Config Shortcodes</h2>";
+                            echo "<p><b>Shortcode :</b> ".stripslashes('[wp-rocket-config]')." </p>";
+                            echo "<p><b>Parameters : </b> ".stripslashes('option = facebook , twitter , google_plus , linkedin , youtube , instagram , pinterest','business_email','business_phone','business_address, rocket_scripts, developer, copyright')." </p>";
                 echo '</div>';
                 echo '<h3>I. General Information</h3>';
                 
-                echo '<table class="jpc-table">';   
+                echo '<table class="jpc-table">';
                     echo '<tr>';
                         echo '<td>Business E-mail : </td>';
                         echo '<td><input placeholder="Business E-mail" type="text" name="business_email" value="'. esc_attr( get_option('business_email') ).'" /></td>';
@@ -339,51 +335,18 @@
         register_setting( 'option-group', 'rocket_scripts' );
         
     }
-	function developerShortcode( $atts ) { 
-		return do_shortcode(get_option('developer'));
-	}
+    function getOptionShortCode($atts){
+        $option   = "";
+        $return = "Option does not exist.";
+        extract( shortcode_atts( array(
+            'option' =>  $option
+        ), $atts ) );
 
-	function copyrightShortcode( $atts ) { 
-		return do_shortcode(get_option('copyright'));
-	}
-
-	/**
-	 * Social Media Shortcode
-	 */
-	function socialMediaShortcode( $atts ) {
-		// Assign default values
-		
-		$mode   = "";
-		$return = "Invalid value!";
-		
-		extract( shortcode_atts( array(
-			'mode' =>  $mode
-		), $atts ) );
-		
-		if($mode == "facebook"){
-			$return = get_option('facebook');
-		}
-		else if($mode == "twitter"){
-			$return = get_option('twitter');
-		}
-		else if($mode == "google_plus"){
-			$return = get_option('google_plus');
-		}
-		else if($mode == "linkedin"){
-			$return = get_option('linkedin');
-		}
-		else if($mode == "youtube"){
-			$return = get_option('youtube');
-		}
-		else if($mode == "instagram"){
-			$return = get_option('instagram');
-		}
-		else if($mode == "pinterest"){
-			$return = get_option('pinterest');
-		}
-		
-		return $return;
-	}
+        if(get_option($mode)){
+            $return = get_option($mode);
+        }
+        return $return;
+    }
 
 	/**
 	 * Get Present Year
@@ -710,12 +673,10 @@
 		 * Shortcode
 		 */
 		 
-		add_filter( 'woocommerce_product_tabs', 'woo_new_review_product_tab' );
+		add_filter('woocommerce_product_tabs', 'woo_new_review_product_tab');
 		add_shortcode( 'rocketmenu', 'getMenuNavigation' ); //[rocketmenu]
 		add_shortcode( 'year', 'getPresentYear' ); //[year]
-		add_shortcode( 'social-media', 'socialMediaShortcode' ); //[social-media mode="facebook"]
-		add_shortcode( 'copyright', 'copyrightShortcode' ); //[copyright]
-		add_shortcode( 'developer', 'developerShortcode' ); //[developer]
+		add_shortcode( 'wp-rocket-config', 'getOptionShortCode' ); //[wp-rocket-config option="facebook"]
 		add_shortcode('recent-posts', 'pull_blog_posts'); //[recent-posts posts=5 template=news ]
 	}	
 	
