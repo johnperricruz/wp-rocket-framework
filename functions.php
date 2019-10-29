@@ -342,8 +342,8 @@
             'option' =>  $option
         ), $atts ) );
 
-        if(get_option($mode)){
-            $return = get_option($mode);
+        if(get_option($option)){
+            $return = get_option($option);
         }
         return $return;
     }
