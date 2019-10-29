@@ -194,132 +194,151 @@
 	/**
 	 * Theme Options Page
 	 */
-	function rocketThemeOptionsPage() {
-		echo '<div class="wrap">';
-			echo '<h1>Primeview Rocket Theme Options</h1>';
-			echo '<form method="post" action="options.php">';
-				settings_fields( 'option-group' );
-				do_settings_sections( 'option-group' );
-				echo '<div class="shortcodes">';
-						echo "<h2>Social Media Shortcode</h2>";
-							echo "<p><b>Shortcode :</b> ".stripslashes('[social-media]')." </p>";
-							echo "<p><b>Parameters : </b>".stripslashes('mode = facebook , twitter , google_plus , linkedin , youtube , instagram , pinterest')." </p>";
-							echo "<p><b>Example : </b>".stripslashes('[social-media mode="facebook"]')." </p>";
-						echo "<h2>Copyright and Developer Shortcode</h2>";
-						echo "<p><b>Get Developer Part : </b> ".stripslashes('[developer]')."</p>";
-						echo "<p><b>Get Copyright Part : </b> ".stripslashes('[copyright]')."</p>";
-				echo '</div>';
-				echo '<h3>I. Social Media</h3>';
-				echo '<table class="jpc-table">';
-					echo '<tr>';
-						echo '<td>Facebook: </td>';
-						echo '<td><input placeholder="Facebook" type="text" name="facebook" value="'. esc_attr( get_option('facebook') ).'" /> </td>';
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>Twitter: </td>';
-						echo '<td><input placeholder="Twitter" type="text" name="twitter" value="'. esc_attr( get_option('twitter') ).'" /></td>';
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>Google Plus: </td>';
-						echo '<td><input placeholder="Google Plus" type="text" name="google_plus" value="'. esc_attr( get_option('google_plus') ).'" /></td>';
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>LinkedIn: </td>';
-						echo '<td><input placeholder="LinkedIN" type="text" name="linkedin" value="'. esc_attr( get_option('linkedin') ).'" /></td>';
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>Youtube: </td>';
-						echo '<td><input placeholder="Youtube" type="text" name="youtube" value="'. esc_attr( get_option('youtube') ).'" /></td>';
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>Instagram: </td>';
-						echo '<td><input placeholder="Instagram" type="text" name="instagram" value="'. esc_attr( get_option('instagram') ).'" /></td>';
-					echo '</tr>';
-					echo '<tr>';
-						echo '<td>Pinterest: </td>';
-						echo '<td><input placeholder="Pinterest" type="text" name="pinterest" value="'. esc_attr( get_option('pinterest') ).'" /></td>';
-					echo '</tr>';				
-				echo '</table>';
-				echo '<h3>II. Website Settings</h3>';
-				echo '<table class="jpc-table">';
-					echo '<tr>';
-						echo '<td>Frontend Favicon: </td>';
-						echo '<td><input placeholder="Frontend Favicon" type="text" name="favicon" value="'. esc_attr( get_option('favicon') ).'" /></td>';
-					echo '</tr>';	
-					echo '<tr>';
-						echo '<td>Backend Favicon: </td>';
-						echo '<td><input placeholder="Admin Backend Favicon" type="text" name="admin_favicon" value="'. esc_attr( get_option('admin_favicon') ).'" /></td>';
-					echo '</tr>';										
-				echo '</table>';
-				echo '<h3>III. Enable Theme Features</h3>';
-				echo '<table class="jpc-table">';	
-					echo '<tr>';
-						echo '<td>FontAwesome v4.4.0 : </td>';
-						?><td><input type="checkbox" name="font_awesome" value="true" <?php if(get_option('font_awesome') == "true") echo "checked"; ?> /> <a target="_blank" href="https://fortawesome.github.io/Font-Awesome/icons/">Read Documentation</a></td><?php
-					echo '</tr>';		
-					echo '<tr>';
-						echo '<td>Scroll Reveal : </td>';
-						?><td><input type="checkbox" name="scroll_reveal" value="true" <?php if(get_option('scroll_reveal') == "true") echo "checked"; ?> /><a target="_blank" href="https://github.com/jlmakes/scrollreveal.js">Read Documentation</a> </td><?php
-					echo '</tr>';		
-					echo '<tr>'; 
-						echo '<td>Owl Carousel v2.3.3: </td>';
-						?><td><input type="checkbox" name="owl" value="true" <?php if(get_option('owl') == "true") echo "checked"; ?> /> <a target="_blank" href="https://owlcarousel2.github.io/OwlCarousel2/demos/basic.html">Read Documentation</a> </td><?php
-					echo '</tr>';	
-					echo '<tr>';
-						echo '<td>JS Parallax Scrolling : </td>';
-						?><td><input type="checkbox" name="parallax" value="true" <?php if(get_option('parallax') == "true") echo "checked"; ?> /> Example :  $("SELECTOR").parallax("50%", 0.1); </td><?php
-					echo '</tr>';					
-				echo '</table>';	
-				echo '<h3>IV. Copyright Section</h3>';
-				
-				echo '<table class="jpc-table">';	
-					echo '<tr>';
-						echo '<td>Copyright : </td>';
-						echo '<td><textarea rows="6" type="text" name="copyright" value="'. esc_attr( get_option('copyright') ).'" >'. esc_attr( get_option('copyright') ).'</textarea></td>';
-					echo '</tr>';		
-					echo '<tr>';
-						echo '<td>Developer : </td>';
-						echo '<td><textarea rows="6" type="text" name="developer" value="'. esc_attr( get_option('developer') ).'" >'. esc_attr( get_option('developer') ).'</textarea></td>';
-					echo '</tr>';				
-				echo '</table>';
-				
-				echo '<h3>V. Third Party Scripts</h3>';
-				
-				echo '<table class="jpc-table">';	
-					echo '<tr>';
-						echo '<td>Third Party Scripts : </td>';
-						echo '<td><textarea rows="10" type="text" name="rocket_scripts" value="'. esc_attr( get_option('rocket_scripts') ).'" >'. esc_attr( get_option('rocket_scripts') ).'</textarea></td>';
-					echo '</tr>';						
-				echo '</table>';
-				
-				submit_button();
-			echo'</form>';
-		echo'</div>';
-	}
+    function rocketThemeOptionsPage() {
+        echo '<div class="wrap">';
+            echo '<h1>WP Rocket Theme Options</h1>';
+            echo '<form method="post" action="options.php">';
+                settings_fields( 'option-group' );
+                do_settings_sections( 'option-group' );
+                echo '<div class="shortcodes">';
+                        echo "<h2>Social Media Shortcode</h2>";
+                            echo "<p><b>Shortcode :</b> ".stripslashes('[social-media]')." </p>";
+                            echo "<p><b>Parameters : </b>".stripslashes('mode = facebook , twitter , google_plus , linkedin , youtube , instagram , pinterest')." </p>";
+                            echo "<p><b>Example : </b>".stripslashes('[social-media mode="facebook"]')." </p>";
+                        echo "<h2>Copyright and Developer Shortcode</h2>";
+                        echo "<p><b>Get Developer Part : </b> ".stripslashes('[developer]')."</p>";
+                        echo "<p><b>Get Copyright Part : </b> ".stripslashes('[copyright]')."</p>";
+                echo '</div>';
+                echo '<h3>I. General Information</h3>';
+                
+                echo '<table class="jpc-table">';   
+                    echo '<tr>';
+                        echo '<td>Business E-mail : </td>';
+                        echo '<td><input placeholder="Business E-mail" type="text" name="business_email" value="'. esc_attr( get_option('business_email') ).'" /></td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>Business Phone : </td>';
+                        echo '<td><input placeholder="Business Phone" type="text" name="business_phone" value="'. esc_attr( get_option('business_phone') ).'" /></td>';
+                    echo '</tr>';   
+                    echo '<tr>';
+                        echo '<td>Business Address : </td>';
+                        echo '<td><input placeholder="Business Address" type="text" name="business_address" value="'. esc_attr( get_option('business_address') ).'" /></td>';
+                    echo '</tr>';                
+                echo '</table>';
+                echo '<h3>II. Social Media</h3>';
+                echo '<table class="jpc-table">';
+                    echo '<tr>';
+                        echo '<td>Facebook: </td>';
+                        echo '<td><input placeholder="Facebook" type="text" name="facebook" value="'. esc_attr( get_option('facebook') ).'" /> </td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>Twitter: </td>';
+                        echo '<td><input placeholder="Twitter" type="text" name="twitter" value="'. esc_attr( get_option('twitter') ).'" /></td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>Google Plus: </td>';
+                        echo '<td><input placeholder="Google Plus" type="text" name="google_plus" value="'. esc_attr( get_option('google_plus') ).'" /></td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>LinkedIn: </td>';
+                        echo '<td><input placeholder="LinkedIN" type="text" name="linkedin" value="'. esc_attr( get_option('linkedin') ).'" /></td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>Youtube: </td>';
+                        echo '<td><input placeholder="Youtube" type="text" name="youtube" value="'. esc_attr( get_option('youtube') ).'" /></td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>Instagram: </td>';
+                        echo '<td><input placeholder="Instagram" type="text" name="instagram" value="'. esc_attr( get_option('instagram') ).'" /></td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                        echo '<td>Pinterest: </td>';
+                        echo '<td><input placeholder="Pinterest" type="text" name="pinterest" value="'. esc_attr( get_option('pinterest') ).'" /></td>';
+                    echo '</tr>';               
+                echo '</table>';
+                echo '<h3>III. Website Settings</h3>';
+                echo '<table class="jpc-table">';
+                    echo '<tr>';
+                        echo '<td>Frontend Favicon: </td>';
+                        echo '<td><input placeholder="Frontend Favicon" type="text" name="favicon" value="'. esc_attr( get_option('favicon') ).'" /></td>';
+                    echo '</tr>';   
+                    echo '<tr>';
+                        echo '<td>Backend Favicon: </td>';
+                        echo '<td><input placeholder="Admin Backend Favicon" type="text" name="admin_favicon" value="'. esc_attr( get_option('admin_favicon') ).'" /></td>';
+                    echo '</tr>';                                       
+                echo '</table>';
+                echo '<h3>IV. Enable Theme Features</h3>';
+                echo '<table class="jpc-table">';   
+                    echo '<tr>';
+                        echo '<td>FontAwesome v4.4.0 : </td>';
+                        ?><td><input type="checkbox" name="font_awesome" value="true" <?php if(get_option('font_awesome') == "true") echo "checked"; ?> /> <a target="_blank" href="https://fortawesome.github.io/Font-Awesome/icons/">Read Documentation</a></td><?php
+                    echo '</tr>';       
+                    echo '<tr>';
+                        echo '<td>Scroll Reveal : </td>';
+                        ?><td><input type="checkbox" name="scroll_reveal" value="true" <?php if(get_option('scroll_reveal') == "true") echo "checked"; ?> /><a target="_blank" href="https://github.com/jlmakes/scrollreveal.js">Read Documentation</a> </td><?php
+                    echo '</tr>';       
+                    echo '<tr>'; 
+                        echo '<td>Owl Carousel v2.3.3: </td>';
+                        ?><td><input type="checkbox" name="owl" value="true" <?php if(get_option('owl') == "true") echo "checked"; ?> /> <a target="_blank" href="https://owlcarousel2.github.io/OwlCarousel2/demos/basic.html">Read Documentation</a> </td><?php
+                    echo '</tr>';   
+                    echo '<tr>';
+                        echo '<td>JS Parallax Scrolling : </td>';
+                        ?><td><input type="checkbox" name="parallax" value="true" <?php if(get_option('parallax') == "true") echo "checked"; ?> /> Example :  $("SELECTOR").parallax("50%", 0.1); </td><?php
+                    echo '</tr>';                   
+                echo '</table>';    
+                echo '<h3>V. Copyright Section</h3>';
+                
+                echo '<table class="jpc-table">';   
+                    echo '<tr>';
+                        echo '<td>Copyright : </td>';
+                        echo '<td><textarea rows="6" type="text" name="copyright" value="'. esc_attr( get_option('copyright') ).'" >'. esc_attr( get_option('copyright') ).'</textarea></td>';
+                    echo '</tr>';       
+                    echo '<tr>';
+                        echo '<td>Developer : </td>';
+                        echo '<td><textarea rows="6" type="text" name="developer" value="'. esc_attr( get_option('developer') ).'" >'. esc_attr( get_option('developer') ).'</textarea></td>';
+                    echo '</tr>';               
+                echo '</table>';
+                
+                echo '<h3>VI. Third Party Scripts</h3>';
+                
+                echo '<table class="jpc-table">';   
+                    echo '<tr>';
+                        echo '<td>Third Party Scripts : </td>';
+                        echo '<td><textarea rows="10" type="text" name="rocket_scripts" value="'. esc_attr( get_option('rocket_scripts') ).'" >'. esc_attr( get_option('rocket_scripts') ).'</textarea></td>';
+                    echo '</tr>';                       
+                echo '</table>';
+                
+                submit_button();
+            echo'</form>';
+        echo'</div>';
+    }
 
-	/**
-	 * Register Theme Settings
-	 */
-	function rocketThemeSettings() {
-		register_setting( 'option-group', 'facebook' );
-		register_setting( 'option-group', 'twitter' );
-		register_setting( 'option-group', 'google_plus' );
-		register_setting( 'option-group', 'linkedin' );
-		register_setting( 'option-group', 'youtube' );
-		register_setting( 'option-group', 'instagram' );
-		register_setting( 'option-group', 'pinterest' );
-		register_setting( 'option-group', 'favicon' );
-		register_setting( 'option-group', 'admin_favicon' );
-		register_setting( 'option-group', 'font_awesome' );
-		register_setting( 'option-group', 'scroll_reveal' );
-		register_setting( 'option-group', 'owl' );
-		register_setting( 'option-group', 'parallax' );
-		register_setting( 'option-group', 'loader' );
-		register_setting( 'option-group', 'copyright' );
-		register_setting( 'option-group', 'developer' );
-		register_setting( 'option-group', 'rocket_scripts' );
-		
-	}
+    /**
+     * Register Theme Settings
+     */
+    function rocketThemeSettings() {
+        register_setting( 'option-group', 'business_email' );
+        register_setting( 'option-group', 'business_phone' );
+        register_setting( 'option-group', 'business_address' );
+        register_setting( 'option-group', 'facebook' );
+        register_setting( 'option-group', 'twitter' );
+        register_setting( 'option-group', 'google_plus' );
+        register_setting( 'option-group', 'linkedin' );
+        register_setting( 'option-group', 'youtube' );
+        register_setting( 'option-group', 'instagram' );
+        register_setting( 'option-group', 'pinterest' );
+        register_setting( 'option-group', 'favicon' );
+        register_setting( 'option-group', 'admin_favicon' );
+        register_setting( 'option-group', 'font_awesome' );
+        register_setting( 'option-group', 'scroll_reveal' );
+        register_setting( 'option-group', 'owl' );
+        register_setting( 'option-group', 'parallax' );
+        register_setting( 'option-group', 'loader' );
+        register_setting( 'option-group', 'copyright' );
+        register_setting( 'option-group', 'developer' );
+        register_setting( 'option-group', 'rocket_scripts' );
+        
+    }
 	function developerShortcode( $atts ) { 
 		return do_shortcode(get_option('developer'));
 	}
