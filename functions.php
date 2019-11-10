@@ -669,6 +669,13 @@
 		register_nav_menu( 'primary', __( 'Primary Menu', 'rocket' ) );
 		register_nav_menu( 'mobile', __( 'Mobile Menu', 'rocket' ) );
 
+
+        // disable Gutenburg for posts
+        add_filter('use_block_editor_for_post', '__return_false', 10);
+
+        // disable Gutenburg for post types
+        add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
 		/**
 		 * Shortcode
 		 */

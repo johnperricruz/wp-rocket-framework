@@ -1,6 +1,6 @@
 			<footer class="footer">
 			  <div class="container">
-				<span class="text-muted">Primeview Rocket Framework. Fast. Premium. Effective</span>
+				<span class="text-muted">WP Rocket Framework. Fast. Premium. Effective</span>
 			  </div>
 			</footer>
 		</div>
