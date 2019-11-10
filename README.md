@@ -8,7 +8,7 @@
 - Built in Theme Options
 - Built in Premium Plugins (in app and 3rd Party)
 - Optimized For speed and efficiency
-- Uses Twitter Bootstrap CSS Framework
+- Uses Twitter Bootstrap v4.0 CSS Framework
 - Future / Upgrade Proof
 - Tested on all screens and browser (Twitter Bootstrap Standard)
 - Developer Friendly
@@ -18,8 +18,8 @@
 Run command via SSH Client inside "/public_html/wp-content/themes/"
 
 ```bash
-1. Download the package              : wget https://github.com/johnperricruz/wp-rocket-framework/archive/v1.33.zip
-2. Unzip and remove the Package      : unzip v1.33.zip && rm v1.33.zip
+1. Download the package              : wget https://github.com/johnperricruz/wp-rocket-framework/archive/v1.34.zip
+2. Unzip and remove the Package      : unzip v1.34.zip && rm v1.34.zip
 ```
 
 ## Security Vulnerabilities
