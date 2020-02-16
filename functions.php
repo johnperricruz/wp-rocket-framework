@@ -192,7 +192,7 @@
                 echo '<div class="shortcodes">';
                         echo "<h2>WP Rocket Config Shortcodes</h2>";
                             echo "<p><b>Shortcode :</b> ".stripslashes('[wp-rocket-config]')." </p>";
-                            echo "<p><b>Parameters : </b>  option = facebook , twitter , google_plus , linkedin , youtube , instagram , pinterest, business_email','business_phone, business_address, rocket_scripts, developer, copyright";
+                            echo "<p><b>Parameters : </b>  option = facebook , twitter , google_plus , linkedin , youtube , instagram , pinterest, business_email, business_phone, business_address, rocket_scripts, developer, copyright";
                 echo '</div>';
                 echo '<h3>I. General Information</h3>';
                 
